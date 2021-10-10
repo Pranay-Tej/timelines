@@ -6,6 +6,7 @@ const state = {
   name: null,
   yob: null,
   yod: null,
+  timers: [],
 };
 
 const mutations = {
@@ -18,10 +19,13 @@ const mutations = {
   setYod(state, yod) {
     state.yod = yod;
   },
+  setTimers(state, timers) {
+    state.timers = timers;
+  },
 };
 
 const actions = {
-  fetchPersonList({ commit, dispatch }, startYear = START_YEAR) {
+  fetchPersonList({ commit, dispatch, state }, startYear = START_YEAR) {
     // repeat
     startYear = startYear > END_YEAR ? START_YEAR : startYear;
 
@@ -45,7 +49,7 @@ const actions = {
 
           // console.log(data);
           for (let i = 0; i < data.length; i++) {
-            setTimeout(() => {
+            const timerId = setTimeout(() => {
               commit("setName", data[i]?.name);
               commit("setYob", data[i]?.yob);
               commit("setYod", data[i]?.yod);
@@ -55,6 +59,8 @@ const actions = {
                 dispatch("fetchPersonList", startYear + 100);
               }
             }, DELAY * (i + 1));
+            //  add timeout to timers
+            commit("setTimers", [...state.timers, timerId]);
           }
         } else {
           // fetch next century if array is empty for current century
@@ -62,6 +68,15 @@ const actions = {
         }
       })
       .catch((e) => console.error(e));
+  },
+  clearTimers({ commit, state }) {
+    // clear all timeouts and reset timers to []
+    console.log("clear");
+    state.timers.forEach((timer) => clearTimeout(timer));
+    commit("setTimers", []);
+    commit("setName", null);
+    commit("setYob", null);
+    commit("setYod", null);
   },
 };
 
