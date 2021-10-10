@@ -20,6 +20,15 @@ A Vue App to visualize timelines of eminent persons in history
 
 ---
 
+## Workflow
+
+- Create a branch from `dev` to work on a new feature or fix
+- Once development is complete and tested in local, raise a merge request into `dev` branch
+- If the functionality is working as expected in preview url, reviewer will merge the feature branch into `dev`
+- Once the feature is complete, maintainer will merge `dev` into `main`
+
+---
+
 ## Libraries/Packages
 
 - Vite (Build tool)
