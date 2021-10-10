@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .cell {
-  background-color: hsl(0, 0%, 90%);
+  background-color: var(--inactive-year);
   height: 0.8rem;
   width: 0.8rem;
   border-radius: 50%;
@@ -44,8 +44,8 @@ export default {
 }
 
 .cell.active {
-  height: 1rem;
-  width: 1rem;
-  background-color: hsl(200, 50%, 50%);
+  background-color: var(--active-year);
+  border-radius: 1px;
+  transform: rotateZ(45deg);
 }
 </style>
