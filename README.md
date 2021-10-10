@@ -1,7 +1,27 @@
-# Vue 3 + Vite
+# Timelines
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A Vue App to visualize timelines of eminent persons in history
 
-## Recommended IDE Setup
+---
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## Local Development Setup
+
+### Prerequisites
+
+- [VSCode](https://code.visualstudio.com)
+- [NodeJS LTS >= 14.17.5](https://nodejs.org/en)
+
+### Instructions
+
+- Run `npm run install` to install dependencies
+- Create a `.env.local` file similar to `.env.example`
+- Replace `VITE_TIMELINES_API` with timelines API base url
+- Run `npm run dev` for development server
+
+---
+
+## Libraries/Packages
+
+- Vite (Build tool)
+- Axios (HTTP client)
+- Vuex (State management)
