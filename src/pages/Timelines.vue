@@ -1,5 +1,5 @@
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, onBeforeUnmount } from "vue";
 import AppCenturyRow from "../components/AppCenturyRow.vue";
 import { useStore } from "vuex";
 import { END_YEAR, START_YEAR } from "../constants/timeline";
@@ -19,6 +19,9 @@ export default {
     for (let i = START_YEAR / 100; i <= END_YEAR / 100; i++) {
       years.value.push(i * 100);
     }
+
+    // beforeUnmount
+    onBeforeUnmount(() => store.dispatch("clearTimers"));
 
     return {
       name: computed(() => store.state.timeline.name),

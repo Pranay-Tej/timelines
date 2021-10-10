@@ -16,12 +16,18 @@ export default {
 
 <template>
   <div id="timelineApp" :class="isDarkThemeEnabled ? 'dark' : ''">
-    <div class="theme-switch">
-      <button @click="toggleDarkTheme">
+    <div class="nav-bar">
+      <button
+        @click="toggleDarkTheme"
+        :title="isDarkThemeEnabled ? 'Light Theme' : 'Dark Theme'"
+      >
         {{ isDarkThemeEnabled ? "💡" : "🌙" }}
       </button>
+      <router-link to="/">Home</router-link><br />
+      <router-link to="/timelines">Timelines</router-link><br />
     </div>
-    <Timelines />
+    <!-- Replaced Dynamically -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -46,6 +52,7 @@ body {
   --active-year: hsl(213, 85%, 53%);
 }
 
+/* resets */
 button {
   background-color: transparent;
   border-radius: 50%;
@@ -57,14 +64,19 @@ button {
   font-size: 1.2rem;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 #timelineApp {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: var(--color);
   background-color: var(--bg);
   transition: 0.3s;
+  min-height: 100vh;
 }
 
 #timelineApp.dark {
@@ -74,18 +86,20 @@ button {
   --active-year: hsl(162, 79%, 50%);
 }
 
-.theme-switch {
+.nav-bar {
   max-width: 768px;
   margin: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
   padding-top: 1rem;
   padding-right: 1rem;
 }
 
 /* medium screen */
 @media screen and (min-width: 768px) {
-  .theme-switch {
+  .nav-bar {
     justify-content: flex-start;
   }
 }
