@@ -11,6 +11,8 @@ export default {
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -23,12 +25,10 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 2rem auto;
-  max-width: 600px;
 }
 </style>
