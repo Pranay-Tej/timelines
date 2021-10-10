@@ -30,8 +30,10 @@ export default {
 
 <template>
   <div class="timeline">
-    <div v-if="name" class="name">{{ name }}</div>
-    <div v-if="!name" class="name">...</div>
+    <div class="name">
+      <div v-if="name">{{ name }}</div>
+      <div v-if="!name">...</div>
+    </div>
     <div class="timeline-grid">
       <div v-for="year in years" :key="year">
         <AppCenturyRow :start-year="year" />
@@ -48,21 +50,26 @@ export default {
   max-width: 768px;
 }
 
-/* medium screen */
-@media screen and (min-width: 768px) {
-  .timeline {
-    display: grid;
-    grid-template-columns: 1fr 410px;
-    align-items: center;
-  }
-}
 .name {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* medium screen */
+@media screen and (min-width: 768px) {
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    align-items: center;
+  }
+  .name {
+    text-align: left;
+  }
 }
 
 .timeline-grid {
-  max-width: 410px;
+  max-width: 450px;
 }
 </style>
