@@ -40,7 +40,7 @@ export default {
   height: 0.8rem;
   width: 0.8rem;
   border-radius: 50%;
-  transition: 0.35s;
+  transition: 0.3s;
 }
 
 .cell.active {

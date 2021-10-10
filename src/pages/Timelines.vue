@@ -14,6 +14,8 @@ export default {
     const years = ref([]);
 
     // onMounted
+    store.dispatch("fetchPersonList");
+
     for (let i = START_YEAR / 100; i <= END_YEAR / 100; i++) {
       years.value.push(i * 100);
     }
@@ -37,7 +39,7 @@ export default {
 
 <style scoped>
 .name {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 </style>
